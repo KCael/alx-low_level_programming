@@ -12,9 +12,9 @@
 int _putchar(char c)
 {
 	char text[] = "_putchar";
-	int i = 0;
+	int i = 2;
 
-	while (text[i] != 0)
+	for (i = 0; i <= 9; i++)
 	{
 		_putchar(text[i]);
 	}
