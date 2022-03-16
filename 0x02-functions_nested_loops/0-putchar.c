@@ -20,6 +20,5 @@ int _putchar(char c)
 	}
 	_putchar('\n');
 
-	write(1, &c, 1);
-	return (1);
+	return (write(1, &c, 1));
 }
