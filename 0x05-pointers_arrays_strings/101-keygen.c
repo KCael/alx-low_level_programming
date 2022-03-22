@@ -9,11 +9,11 @@
 
 int main(void)
 {
-	int pass[50];
+	int pass;
 
 	srand(time(NULL));
-	pass[50] = rand();
-	printf("%i\n", pass[50]);
+	pass = rand();
+	printf("%i\n", pass);
 
 	return (0);
 }
