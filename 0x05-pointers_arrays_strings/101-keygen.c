@@ -13,7 +13,7 @@ int main(void)
 
 	srand(time(NULL));
 	pass[50] = rand();
-	printf("%ls\n", pass);
+	printf("%i\n", pass[50]);
 
 	return (0);
 }
