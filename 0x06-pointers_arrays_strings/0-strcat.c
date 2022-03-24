@@ -11,12 +11,20 @@
 
 char *_strcat(char *dest, char *src);
 {
-	char *dest = "Hello";
-	char *src = "World!";
+	int i = 0;
+	int j = 0;
 
-	/*appends dest onto src*/
-	strcat(dest, src);
-	printf("strcat(dest, src): %s\n", dest);
+	while (dest[i] != '\0')
+		i++;
 
-	return (0);
+	while (src[j] != '\0')
+	{
+		dest[i] = src[j];
+		j++;
+		i++;
+	}
+
+	dest[i + j] = '\0';
+
+	return (dest);
 }
