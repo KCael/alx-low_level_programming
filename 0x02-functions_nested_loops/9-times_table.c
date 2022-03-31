@@ -18,17 +18,17 @@ void times_table(void)
 			if (cl == 0)
 				_putchar(pr + '0');
 
-			else if (pr < 10 && cl != 0)
+			else if (pr < 10 && cl > 0)
 			{
 				_putchar(',');
 				_putchar(' ');
 				_putchar(' ');
-				_putchar(k + '0');
+				_putchar(pr + '0');
 			}
 
 			else if (pr >= 10)
 			{
-				_putchar_putchar(',');
+				_putchar(',');
 				_putchar(' ');
 				_putchar((pr / 10) + '0');
 				_putchar((pr % 10) + '0');
