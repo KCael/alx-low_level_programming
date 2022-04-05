@@ -2,9 +2,9 @@
 #include "main.h"
 
 /**
- * _strlen - finds 'e length of a string
+ * _strlen - finds the length of a string
  * @s: string
- * Return: int
+ * Return:length
  */
 int _strlen(char *s)
 {
@@ -17,7 +17,7 @@ int _strlen(char *s)
 }
 
 /**
- * *argstostr - concatenates all the arguments of the program
+ * argstostr - concatenates all the arguments of the program
  * @ac: number of arguments
  * @av: array of arguments
  *
@@ -33,7 +33,7 @@ char *argstostr(int ac, char **av)
 
 	for (i = 0; i < ac; i++)
 	{
-		len += _strlen(av[i]) +1);
+		len += _strlen(av[i]) + 1;
 	}
 
 	str = malloc(sizeof(char) * len + 1);
