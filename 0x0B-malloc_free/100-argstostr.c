@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include "main.h"
 
 /**
@@ -53,6 +54,6 @@ char *argstostr(int ac, char **av)
 		k++;
 	}
 
-	str[k] = '\n';
+	str[k] = '\0';
 	return (str);
 }
