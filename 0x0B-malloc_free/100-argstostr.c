@@ -2,6 +2,21 @@
 #include "main.h"
 
 /**
+ * _strlen - finds 'e length of a string
+ * @s: string
+ * Return: int
+ */
+int _strlen(char *s)
+{
+	int len = 0;
+
+	while (s[len] != '\0')
+		len++;
+
+	return (len);
+}
+
+/**
  * *argstostr - concatenates all the arguments of the program
  * @ac: number of arguments
  * @av: array of arguments
@@ -18,12 +33,10 @@ char *argstostr(int ac, char **av)
 
 	for (i = 0; i < ac; i++)
 	{
-		for (j = 0; av[i][j] != '\0'; j++)
-			len++;
-		len++;
+		len += _strlen(av[i]) +1);
 	}
 
-	str = malloc(sizeof(char) * (len + 1));
+	str = malloc(sizeof(char) * len + 1);
 
 	if (str == NULL)
 		return (NULL);
@@ -32,7 +45,7 @@ char *argstostr(int ac, char **av)
 
 	for (i = 0; i < ac; i++)
 	{
-		for (j = 0; av[i][j] != '\0'; j++)
+		for (j = 0; j < _strlen(av[i]); j++)
 		{
 			str[k] = av[i][j];
 			k++;
@@ -40,6 +53,8 @@ char *argstostr(int ac, char **av)
 		str[k] = '\n';
 		k++;
 	}
+
+	str[k] = '\0';
 
 	return (str);
 }
