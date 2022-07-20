@@ -10,37 +10,60 @@
  *
  * Return: pointer to the new node, or NULL
  */
-listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
-{
-	unsigned int i;
-	listint_t *new;
-	listint_t *tmp = *head;
+unsigned int len = listint_len(*head), count = 0;
+	listint_t *new_node, *tmp1, *tmp2;
 
-	new = malloc(sizeof(listint_t));
-	if (!new || !head)
-		return (NULL);
+	if (head == 0 && idx > 0)
+		return (0);
 
-	new->n = n;
-	new->next = NULL;
+	new_node = malloc(sizeof(listint_t));
+	if (new_node == 0)
+		return (0);
 
+	if (head == 0 && idx == 0)
+	{
+		new_node->n = n, new_node->next = 0, *head = new_node;
+		return (new_node);
+	}
+
+	if (idx > len)
+	{
+		free(new_node);
+		return (0);
+	}
+	tmp1 = *head;
+	new_node->n = n;
+	while (count < idx && idx != 0)
+	{
+		tmp2 = tmp1, tmp1 = tmp1->next;
+		count++;
+	}
 	if (idx == 0)
 	{
-		new->next = *head;
-		*head = new;
-		return (new);
+		*head = new_node;
+		new_node->next = tmp1;
 	}
-
-	for (i = 0; tmp && i < idx; i++)
+	else
 	{
-		if (i == idx - 1)
-		{
-			new->next = tmp->next;
-			tmp->next = new;
-			return (new);
-		}
-		else
-			tmp = tmp->next;
+		tmp2->next = new_node;
+		new_node->next = tmp1;
 	}
+	return (new_node);
+}
 
-	return (NULL);
+
+/**
+ * listint_len -  returns the number of elements in a linked listint_t list
+ * @h: head pointer of singly linked list
+ *
+ * Return: Number of elements in list
+ */
+size_t listint_len(const listint_t *h)
+{
+	unsigned int size = 0;
+
+	while (h != 0)
+		h = h->next, size++;
+
+	return (size);
 }
